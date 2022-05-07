@@ -1,0 +1,15 @@
+Signature,Extensions,Description
+474946383761,gif,Image GIF
+89504e470d0a1a0a,png,Image PNG
+ffd8ffe0,jpg;jpeg,Image JPEG
+6674797069736F6d,mp4,Vidéo MP4
+424d,bmp;dib,Image BMP
+4344303031,iso,Image de disque ISO
+4d546864,midi;mid,Fichier son MIDI
+377abcaF271c,7z,Archive compressée 7-Zip
+4d5a,exe;scr;sys;dll;cpl,Exécutable MZ Windows ou MS-DOS
+7b5c72746631,rtf,Fichier RTF (format de texte enrichi)
+0001000000,ttf;tte;dfont,Police de caractères TrueType
+4F54544F,otf,Police de caractères OpenType
+424c454e444552,blend,Document Blender
+00000100,ico,Icône au format ICO
