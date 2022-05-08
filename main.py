@@ -5,6 +5,7 @@ import interface
 NOM_CSV = "signatures.csv"
 
 def lireHexadecimal(nomFichier: str, nbCaracteres: int):
+    assert nbCaracteres > 0, "Le nombre de caractères à lire doit être un entier positif non nul"
     """ Lit en héxadécimal dans un fichier un certain nombre de caractères.
     Source : https://stackoverflow.com/a/34687617 """
     with open(nomFichier, 'rb') as f:
@@ -52,7 +53,8 @@ def test():
     assert rechercherSignature(hexdata).Signature.iloc[0] == "4d5a", "La fonction trouverSignature n'a pas trouve la signature."
     print("Test reussi.")
 
+""" Cette condition permet d'éxécuter le script seulement si il est ouvert en tant que fichier et non pas importé. """
 if __name__ == "__main__":
-        test()    
-        #interface.creerFenetre()
+        #test()    
+        interface.creerFenetre()
 
