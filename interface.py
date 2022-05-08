@@ -11,6 +11,8 @@ def creerFenetre():
     DESCRIPTION = "Description : "
     EXTENSIONS = "Extensions : "
     
+    INTROUVABLE = "(introuvable)"
+    
     dicLabels = {}
     
     def selectionnerFichier():
@@ -20,16 +22,23 @@ def creerFenetre():
         def configurerLabel(nom, texteAAjouter):
             """ Met la propriété text du label de dicLabels[nom] à la valeur nom+texteAAjouter. """
             dicLabels[nom].configure(text = nom+texteAAjouter)
-            
+        
         configurerLabel(EXPLORATEUR, filename)
-        configurerLabel(SIGNATURE, signature.Signature.iloc[0])
-        configurerLabel(DESCRIPTION, signature.Description.iloc[0])
-        configurerLabel(EXTENSIONS, signature.Extensions.iloc[0])
+        
+        # Si la signature n'a pas été trouvée (le DataFrame est vide)
+        if signature.empty:
+            configurerLabel(SIGNATURE, INTROUVABLE)
+            configurerLabel(DESCRIPTION, INTROUVABLE)
+            configurerLabel(EXTENSIONS, INTROUVABLE)
+        else:
+            configurerLabel(SIGNATURE, signature.Signature.iloc[0])
+            configurerLabel(DESCRIPTION, signature.Description.iloc[0])
+            configurerLabel(EXTENSIONS, signature.Extensions.iloc[0])
         
     
     root = tk.Tk()
     root.title("FileSignatureDetector") # titre de la fenêtre
-    root.minsize(180, 180) # taille minimum en pixels
+    root.minsize(219, 180) # taille minimum en pixels
     root.config(bg="white") # couleur de fond : blanc
     
     # Définition du style des labels.

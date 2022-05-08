@@ -18,7 +18,7 @@ def obtenirLongueurPlusLongueSignature():
 
 def rechercherSignature(possibleSignature: str):
     """ Alogorithme glouton qui retourne la ligne de la base de donnée correspondant à la signature spécifiée,
-    ou None si aucune signature de correspond.
+    ou un DataFrame vide si aucune signature ne correspond.
     La variable de retour, un DataFrame Pandas, peut s'utiliser comme un dictionnaire."""
     
     # Au départ, toutes les signatures pourraient convenir
@@ -53,7 +53,7 @@ def test():
     assert rechercherSignature(hexdata).Signature.iloc[0] == "4d5a", "La fonction trouverSignature n'a pas trouve la signature."
     print("Test reussi.")
 
-""" Cette condition permet d'éxécuter le script seulement si il est ouvert en tant que fichier et non pas importé. """
+""" Cette condition permet d'exécuter le script seulement si il est ouvert en tant que fichier et non pas importé. """
 if __name__ == "__main__":
         #test()    
         interface.creerFenetre()
