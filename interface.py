@@ -37,7 +37,7 @@ def creerFenetre():
         
     
     root = tk.Tk()
-    root.title("FileSignatureDetector") # titre de la fenêtre
+    root.title("Détecteur de signature de fichier") # titre de la fenêtre
     root.minsize(219, 180) # taille minimum en pixels
     root.config(bg="white") # couleur de fond : blanc
     
