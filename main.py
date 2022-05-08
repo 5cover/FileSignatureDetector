@@ -16,7 +16,7 @@ def obtenirLongueurPlusLongueSignature():
     return len(max(pandas.read_csv(NOM_CSV).loc[:, "Signature"], key=len))
 
 def rechercherSignature(possibleSignature: str):
-    """ Retourne la ligne de la base de donnée correspondant à la signature spécifiée,
+    """ Alogorithme glouton qui retourne la ligne de la base de donnée correspondant à la signature spécifiée,
     ou None si aucune signature de correspond.
     La variable de retour, un DataFrame Pandas, peut s'utiliser comme un dictionnaire."""
     
@@ -28,12 +28,13 @@ def rechercherSignature(possibleSignature: str):
         
         candidatsOntChiffre = []
         for candidat in candidats.Signature:
-            # On conserve le candidat si on l'a dépassé ou si il contient le bon chiffre
-            # L'opérateur séquentiel "or" permet de ne pas tenter d'accéder à un chiffre de candidat trop élevé.
+            # Le candidat est valide si il est moins long que la signature 
+                                        # OU
+            # si son ième chiffre correspond au ième chiffre de la signature
             candidatsOntChiffre.append(i >= len(candidat) or candidat[i] == possibleSignature[i]) 
             
         # Indexation. On garde les candidats aux index de candidatsOntChiffre qui ont pour valeur True.
-        candidats = candidats.loc[candidatsOntChiffre, :]
+        candidats = candidats.loc[candidatsOntChiffre]
     
     # On retourne la ligne du DataFrame candidats contenant plus longue signature qui pourrait convenir
     return candidats.loc[candidats.Signature == max(candidats.Signature, key=len, default=None)]
@@ -52,5 +53,6 @@ def test():
     print("Test reussi.")
 
 if __name__ == "__main__":
-        interface.creerFenetre()
+        test()    
+        #interface.creerFenetre()
 
