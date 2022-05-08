@@ -41,11 +41,6 @@ def creerFenetre():
     root.minsize(219, 180) # taille minimum en pixels
     root.config(bg="white") # couleur de fond : blanc
     
-    # Définition du style des labels.
-    # Les propriétés définies ici seront appliquées à tous les Labels qui seront créés.
-    style = ttk.Style(root)
-    style.configure("TLabel", borderwidth=2, relief="groove", padding=(3,3,3,3))
-    
     # Définition de la marge (padding) extérieure à 10 pixels.
     PAD = 10
     
@@ -60,7 +55,7 @@ def creerFenetre():
     
     def ajouterLabel(texte):
         """ Fonction locale qui permet d'éviter la répétition du code de création de labels. """
-        label = ttk.Label(root, text=texte) # Création du label
+        label = ttk.Label(root, text=texte, borderwidth=2, relief="groove", padding=(3,3,3,3)) # Création du label
         label.bind("<Configure>", update_wraplength) # Bind de l'évènement de changement de taille
         dicLabels[texte] = label # Ajout au dictionnaire des labels
         label.pack(padx = PAD, pady = PAD, fill=tk.BOTH, expand=1) # Pack du label
